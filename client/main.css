@@ -1,0 +1,54 @@
+body
+{
+    padding-top: 30px;
+}
+
+.image-container {
+    position:relative;
+    display: inline-block;
+}
+.image-container .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.image-container .after .content {
+    position: absolute;
+    bottom: 10px;
+    padding-left: 10px;
+    color: white;
+
+}
+
+.ligcustom {
+    height: 25px;
+    padding: 2px 15px;
+}
+
+/*body {*/
+    /*margin: 10px;*/
+    /*background: url(/images/bg2.jpg) no-repeat center center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+/*}*/
+.suffer {
+    background: url(/images/bg3.jpg) repeat-x, repeat-y;
+    -webkit-background-size: 256px 256px;
+    -moz-background-size: 256px 256px;
+    -o-background-size: 256px 256px;
+    background-size: 256px 256px;
+    background-repeat: repeat;
+}
+.leftimg {
+    float:left; /* Выравнивание по левому краю */
+    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+}
+.rightimg  {
+    float: right; /* Выравнивание по правому краю  */
+    margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+}
