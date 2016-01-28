@@ -1,0 +1,294 @@
+<template name="BrootLay">
+    <head>
+        <title>Vintage Photo agregation service</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+    </head>
+
+    <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Vintage photos agregation</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="clearfil"><a href="/">Main</a></li>
+                    <li class="{{isActiveRoute name='item'}}"><a href="{{pathFor route='item'}}">Item</a></li>
+                    <li class="{{isActiveRoute name='search'}}"><a href="{{pathFor route='search'}}">Search Result</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead"></p>
+                <div class="input-group">
+                    <input type="text" class="form-control textInp" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default sitemb" type="button">Go!</button>
+      </span>
+
+                </div>
+                <div class="list-group">
+                    {{#each cats}}
+                        <a href="{{pathFor route='category'}}" class="list-group-item {{isActivePath CategoryNamePath}}">{{CategoryName}} <span class="badge">{{countz}}</span></a>
+                    {{/each}}
+                </div>
+            </div>
+            <!--<h1>CONT</h1>-->
+            {{> yield 'header'}}
+
+            {{> yield 'form'}}
+
+
+            {{> yield 'table'}}
+
+
+            {{> yield 'footer'}}
+
+        </div>
+
+    </div>
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    </body>
+</template>
+
+<template name="Headz">
+
+</template>
+
+<template name="Formz">
+    <!--
+        <input type="text" name="subtext" placeholder="Enter search text"/>
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
+    -->
+
+</template>
+
+<template name="Tablez">
+    <div class="col-md-9 suffer">
+    <!--{{#each items}}-->
+        <!--{{>OneItem}}-->
+            <!--{{/each}}-->
+        {{> pagesNav}}
+        {{> pages}}
+
+
+    </div>
+
+
+</template>
+
+<template name="Tablez2">
+    <div class="col-md-9">
+
+        {{> pagesNav}}
+        {{> pages}}
+
+    </div>
+
+
+</template>
+
+<template name="Footerz">
+
+</template>
+
+<template name="loading">
+    {{>spinner}}
+</template>
+
+<template name="OneItem">
+    <li class="list-group-item">
+        <div class="row">
+            <div class="image-container leftimg">
+                <img src="{{galleryURL}}" alt="{{title}}" class="img img-responsive full-width">
+                <div class="after">
+                    <span class="content {{sellstate this}}"><b>{{currentPrice}} {{currentPricecurrencyId}}</b></span>
+                </div>
+            </div>
+            <div class="caption">
+                <!--<h5 class="bg-info post-content">{{currentPrice}} {{currentPricecurrencyId}}</h5>-->
+                <h5><a href="{{pathFor route='item'}}">{{title}}</a>
+                </h5>
+
+                <p>Ship to: {{shipToLocations}}</p>
+                <p>Bids: {{bidCount}}, Timeleft: {{ formatTimeLeft endTime}}
+                </p>
+            </div>
+        </div>
+    </li>
+</template>
+
+<template name="OneItem2">
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail thumbnail2">
+            <h5 class="pull-right bg-info">{{currentPrice}} {{currentPricecurrencyId}}</h5>
+            <img src="{{galleryURL}}" alt="{{title}}">
+            <div class="caption">
+
+                <h6><a href="{{pathFor route='item'}}">{{title}}</a>
+                </h6>
+                <p></p>
+            </div>
+            <div class="ratings">
+                <p class="pull-right">{{bidCount}} bids</p>
+                <p>
+                    {{ formatTimeLeft timeLeft}}
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="SingleItem">
+    <div class="col-md-9">
+        <div class="thumbnail h-product">
+
+            <img class="img-responsive u-photo" src="{{PictureURL}}" alt="{{title}}">
+            <div class="caption-full">
+                <data class="pull-right p-price" value="{{currentPrice}}"><b>{{currentPricecurrencyId}}{{currentPrice}}</b></data>
+                <h4 class="p-name">{{title}}</h4>
+                <a href="{{viewItemURL}}">Open on Ebay</a>
+                <a class="p-brand h-card" href="{{pathitem}}">Ebay Vintage Photo agregation service</a>
+                <table class="table table-condensed bg-info">
+                    <tr class="warning"><td class="col-md-2">Date</td> <td class="col-md-2">{{CreatedAt}}</td></tr>
+                    <tr class="warning"><td class="col-md-2">Payment via</td> <td class="col-md-2">{{paymentMethod}}</td></tr>
+                    <tr class="warning"><td class="col-md-2">Location</td> <td class="col-md-2">{{location}}</td></tr>
+                    <tr class="warning"><td class="col-md-2">Bids</td> <td class="col-md-2">{{bidCount}}</td></tr>
+                    <tr class="warning"><td class="col-md-2">Source</td> <td class="col-md-2">{{Source}}</td></tr>
+                    <tr class="warning"><td class="col-md-2">Quantity</td> <td class="col-md-2 bg-success">{{Quantity}}</td></tr>
+                    <tr class="warning"><td class="col-md-2">QuantitySold</td> <td class="col-md-2 bg-success">{{QuantitySold}}</td></tr>
+                    <tr class="warning"><td class="col-md-2">Auction</td> <td class="col-md-2 {{itemState this}}">{{sellingState}}</td></tr>
+                    <tr class="warning"><td class="col-md-2">Ship to</td> <td class="col-md-2">{{shipToLocations}}</td></tr>
+                </table>
+                {{#each PictureArr}}{{> SinglePic}}{{/each}}
+                <p></p>
+            </div>
+            <div class="ratings">
+                <p class="pull-right">(C)</p>
+                <p>
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="SinglePic">
+    <div class="row">
+        <div class="col-xs-4 col-md-4">
+
+            <div class="js-activate-s-image-box" data-full-image-src="{{bigp this}}"><img src="{{tumb this}}" alt="{{namep this}}" class="img-responsive u-photo"></div><a href={{bigp this}} download="{{namep this}}.jpg">
+            <button type="button" class="btn btn-default" aria-label="Left Align">
+                <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+            </button>
+
+        </a>
+
+        </div>
+    </div>
+</template>
+
+<template name="ZONE">
+    <head>
+        <title>vin2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+    </head>
+
+    <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Vintage photos</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Main</a></li>
+                    <li class="{{isActiveRoute name='item'}}"><a href="{{pathFor route='item'}}">Item</a></li>
+                    <li class="{{isActiveRoute name='search'}}"><a href="{{pathFor route='search'}}">Search Result</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead"></p>
+                <div class="input-group">
+                    <input type="text" class="form-control textInp" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default sitemb" type="button">Go!</button>
+      </span>
+
+                </div>
+                <div class="list-group">
+                    {{#each cats}}
+                        <a href="{{pathFor route='category'}}" class="list-group-item {{isActivePath CategoryNamePath}}">{{CategoryName}} <span class="badge">{{countz}}</span></a>
+                    {{/each}}
+                </div>
+            </div>
+            <!--<h1>CONT</h1>-->
+            ->ZONE layout
+
+
+
+            {{> yield}}
+
+
+
+
+        </div>
+
+    </div>
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    </body>
+</template>
