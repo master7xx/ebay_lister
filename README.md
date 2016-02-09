@@ -3,7 +3,7 @@
 ## Purpose of this software
 This application looking for ebay auctions with user provided keyword|keywords and display results on web page
 Using ebay dev api (you need own developer account and production key that should be stored in settings.json) application
-make http calls to ebay endpoints and retrive info about auctions.
+make http calls to ebay endpoints and retrieve info about auctions.
 
 ## This application writen on javascript framework MeteorJS
 `caturl` variable contain url for list of categories (current 407 - parent category for vintage&antique photo) 
