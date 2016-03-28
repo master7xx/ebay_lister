@@ -1,0 +1,10 @@
+{
+  "version": "4.2.3",
+  "base": "highcharts.js",
+  "modules": [
+
+    "modules/exporting.js",
+
+    "themes/gray.js"
+  ]
+}

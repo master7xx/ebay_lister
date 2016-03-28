@@ -1,0 +1,40 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+insecure
+meteortoys:allthings
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+nemo64:bootstrap
+less
+underscore
+http
+iron:router
+templating
+alethes:pages
+percolate:synced-cron
+momentjs:moment
+zimme:active-route
+juliancwirko:s-image-box
+manuelschoebel:ms-seo
+froatsnook:request
+mrt:require
+highcharts:highcharts-meteor
+
+
+highcharts-container

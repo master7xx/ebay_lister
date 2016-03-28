@@ -5,7 +5,7 @@ Cats = new Mongo.Collection("cats");
 Items = new Mongo.Collection("items");
 
 
-Pages2 = new Meteor.Pagination(Items, {templateName: "Tablez", itemTemplate: "OneItem", perPage: 84, sort: {
+Pages2 = new Meteor.Pagination(Items, {templateName: "Tablez", routerLayout:"BrootLay", itemTemplate: "OneItem", perPage: 84, sort: {
     inserted: -1
 },
     availableSettings: {

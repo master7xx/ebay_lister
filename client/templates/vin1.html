@@ -1,17 +1,17 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#689BFF">
+    <meta name="google-site-verification" content="-qbOrT7ITgFF7krJVjnn5o6JR4zCbBfLkeJhyqPoBgg" />
+</head>
 <template name="BrootLay">
-    <head>
-        <title>Vintage Photo agregation service</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="mobile-web-app-capable" content="yes">
-    </head>
 
     <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -23,9 +23,11 @@
                 <ul class="nav navbar-nav">
                     <li class="clearfil"><a href="/">Main</a></li>
                     <li class="{{isActiveRoute name='item'}}"><a href="{{pathFor route='item'}}">Item</a></li>
-                    <li class="{{isActiveRoute name='search'}}"><a href="{{pathFor route='search'}}">Search Result</a></li>
+                    <li class="{{isActiveRoute name='search'}}"><a href="{{pathFor route='search' name='new york'}}">Search Result</a></li>
+                    <li class="{{isActiveRoute name='stats'}}"><a href="{{pathFor route='stats' dy='day'}}">Statistic</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>
+            <!--/.nav-collapse -->
         </div>
     </nav>
 
@@ -34,29 +36,36 @@
         <div class="row">
             <div class="col-md-3">
                 <p class="lead"></p>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="x" class="switcherx">with bids?</label>
+                </div>
                 <div class="input-group">
                     <input type="text" class="form-control textInp" placeholder="Search for...">
-      <span class="input-group-btn">
+                        <span class="input-group-btn">
         <button class="btn btn-default sitemb" type="button">Go!</button>
       </span>
 
                 </div>
                 <div class="list-group">
                     {{#each cats}}
-                        <a href="{{pathFor route='category'}}" class="list-group-item {{isActivePath CategoryNamePath}}">{{CategoryName}} <span class="badge">{{countz}}</span></a>
-                    {{/each}}
+                        <a href="{{pathFor route='category'}}" class="list-group-item {{isActivePath CategoryNamePath}}">{{CategoryName}} <span class="badge">{{countz}}</span></a> {{/each}}
                 </div>
             </div>
             <!--<h1>CONT</h1>-->
-            {{> yield 'header'}}
-
-            {{> yield 'form'}}
-
-
-            {{> yield 'table'}}
-
-
-            {{> yield 'footer'}}
+            <p class="bg-info">Bids:
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="all">All</label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="0">0</label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="1">1</label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="2">2</label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="3">3+</label>
+            </p>
+            {{> yield 'header'}} {{> yield 'form'}} {{> yield 'table'}} {{> yield 'footer'}}
 
         </div>
 
@@ -69,7 +78,8 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; rezultat.info 2015-2016</p>
+                    <p>Service under development</p>
                 </div>
             </div>
         </footer>
@@ -95,8 +105,7 @@
     <!--{{#each items}}-->
         <!--{{>OneItem}}-->
             <!--{{/each}}-->
-        {{> pagesNav}}
-        {{> pages}}
+        {{> pagesNav}} {{> pages}}
 
 
     </div>
@@ -107,8 +116,7 @@
 <template name="Tablez2">
     <div class="col-md-9">
 
-        {{> pagesNav}}
-        {{> pages}}
+        {{> pagesNav}} {{> pages}}
 
     </div>
 
@@ -129,7 +137,7 @@
             <div class="image-container leftimg">
                 <img src="{{galleryURL}}" alt="{{title}}" class="img img-responsive full-width">
                 <div class="after">
-                    <span class="content {{sellstate this}}"><b>{{currentPrice}} {{currentPricecurrencyId}}</b></span>
+                    <span class="content {{sellstate this}}"><b>{{currentPrice}} <small>{{currentPricecurrencyId}}</small></b></span>
                 </div>
             </div>
             <div class="caption">
@@ -137,8 +145,8 @@
                 <h5><a href="{{pathFor route='item'}}">{{title}}</a>
                 </h5>
 
-                <p>Ship to: {{shipToLocations}}</p>
-                <p>Bids: {{bidCount}}, Timeleft: {{ formatTimeLeft endTime}}
+                <p>Ship to: <b><i>{{shipToLocations}}</i></b></p>
+                <p>Bids: <b>{{bidCount}}</b>, Timeleft: <b>{{ formatTimeLeft endTime}}</b>
                 </p>
             </div>
         </div>
@@ -174,21 +182,53 @@
             <div class="caption-full">
                 <data class="pull-right p-price" value="{{currentPrice}}"><b>{{currentPricecurrencyId}}{{currentPrice}}</b></data>
                 <h4 class="p-name">{{title}}</h4>
-                <a href="{{viewItemURL}}">Open on Ebay</a>
-                <a class="p-brand h-card" href="{{pathitem}}">Ebay Vintage Photo agregation service</a>
+                <a href="{{viewItemURL}}" rel="nofollow" target="_blank">To auction</a>
+                <p><a class="p-brand h-card" href="http://rezultat.info{{pathitem}}">Vintage Photo agregation service</a></p>
+                <p>
+                    <button type="button" class="btn btn-primary btn-sm update-btn">Update info</button>
+                </p>
                 <table class="table table-condensed bg-info">
-                    <tr class="warning"><td class="col-md-2">Date</td> <td class="col-md-2">{{CreatedAt}}</td></tr>
-                    <tr class="warning"><td class="col-md-2">Payment via</td> <td class="col-md-2">{{paymentMethod}}</td></tr>
-                    <tr class="warning"><td class="col-md-2">Location</td> <td class="col-md-2">{{location}}</td></tr>
-                    <tr class="warning"><td class="col-md-2">Bids</td> <td class="col-md-2">{{bidCount}}</td></tr>
-                    <tr class="warning"><td class="col-md-2">Source</td> <td class="col-md-2">{{Source}}</td></tr>
-                    <tr class="warning"><td class="col-md-2">Quantity</td> <td class="col-md-2 bg-success">{{Quantity}}</td></tr>
-                    <tr class="warning"><td class="col-md-2">QuantitySold</td> <td class="col-md-2 bg-success">{{QuantitySold}}</td></tr>
-                    <tr class="warning"><td class="col-md-2">Auction</td> <td class="col-md-2 {{itemState this}}">{{sellingState}}</td></tr>
-                    <tr class="warning"><td class="col-md-2">Ship to</td> <td class="col-md-2">{{shipToLocations}}</td></tr>
+                    <tr class="warning">
+                        <td class="col-md-2">Date</td>
+                        <td class="col-md-2">{{CreatedAt}}</td>
+                    </tr>
+                    <tr class="warning">
+                        <td class="col-md-2">Payment via</td>
+                        <td class="col-md-2">{{paymentMethod}}</td>
+                    </tr>
+                    <tr class="warning">
+                        <td class="col-md-2">Location</td>
+                        <td class="col-md-2">{{location}}</td>
+                    </tr>
+                    <tr class="warning">
+                        <td class="col-md-2">Bids</td>
+                        <td class="col-md-2"><b>{{bidCount}}</b></td>
+                    </tr>
+                    <tr class="warning">
+                        <td class="col-md-2">Source</td>
+                        <td class="col-md-2">{{Source}}</td>
+                    </tr>
+                    <tr class="warning">
+                        <td class="col-md-2">Quantity</td>
+                        <td class="col-md-2 bg-success">{{Quantity}}</td>
+                    </tr>
+                    <tr class="warning">
+                        <td class="col-md-2">QuantitySold</td>
+                        <td class="col-md-2 bg-success">{{QuantitySold}}</td>
+                    </tr>
+                    <tr class="warning">
+                        <td class="col-md-2">Auction</td>
+                        <td class="col-md-2 {{itemState this}}">{{sellingState}}</td>
+                    </tr>
+                    <tr class="warning">
+                        <td class="col-md-2">Ship to</td>
+                        <td class="col-md-2"><i><b>{{shipToLocations}}</b></i></td>
+                    </tr>
                 </table>
-                {{#each PictureArr}}{{> SinglePic}}{{/each}}
-                <p></p>
+                <div class="row">
+
+                    {{#each PictureArr}}{{> SinglePic}}{{/each}}
+                </div>
             </div>
             <div class="ratings">
                 <p class="pull-right">(C)</p>
@@ -200,34 +240,28 @@
 </template>
 
 <template name="SinglePic">
-    <div class="row">
-        <div class="col-xs-4 col-md-4">
 
-            <div class="js-activate-s-image-box" data-full-image-src="{{bigp this}}"><img src="{{tumb this}}" alt="{{namep this}}" class="img-responsive u-photo"></div><a href={{bigp this}} download="{{namep this}}.jpg">
+    <div class="col-xs-6 col-md-3">
+        <div class="js-activate-s-image-box" data-full-image-src="{{bigp this}}"><img src="{{tumb this}}" alt="{{namep this}}" class="img-responsive u-photo">
+        </div>
+        <a href={{bigp this}} download="{{namep this}}.jpg">
             <button type="button" class="btn btn-default" aria-label="Left Align">
                 <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
             </button>
-
         </a>
-
-        </div>
     </div>
+
+
 </template>
 
 <template name="ZONE">
-    <head>
-        <title>vin2</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="mobile-web-app-capable" content="yes">
-    </head>
 
     <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -239,9 +273,11 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/">Main</a></li>
                     <li class="{{isActiveRoute name='item'}}"><a href="{{pathFor route='item'}}">Item</a></li>
-                    <li class="{{isActiveRoute name='search'}}"><a href="{{pathFor route='search'}}">Search Result</a></li>
+                    <li class="{{isActiveRoute name='search'}}"><a href="{{pathFor route='search' name='new york'}}">Search Result</a></li>
+                    <li class="{{isActiveRoute name='stats'}}"><a href="{{pathFor route='stats' dy='day'}}">Statistic</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>
+            <!--/.nav-collapse -->
         </div>
     </nav>
 
@@ -249,23 +285,36 @@
 
         <div class="row">
             <div class="col-md-3">
-                <p class="lead"></p>
+                <p class="lead">Search over 400 000 auctions</p>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="x" class="switcherx">with bids?</label>
+                </div>
                 <div class="input-group">
                     <input type="text" class="form-control textInp" placeholder="Search for...">
-      <span class="input-group-btn">
+                        <span class="input-group-btn">
         <button class="btn btn-default sitemb" type="button">Go!</button>
       </span>
 
                 </div>
                 <div class="list-group">
                     {{#each cats}}
-                        <a href="{{pathFor route='category'}}" class="list-group-item {{isActivePath CategoryNamePath}}">{{CategoryName}} <span class="badge">{{countz}}</span></a>
-                    {{/each}}
+                        <a href="{{pathFor route='category'}}" class="list-group-item {{isActivePath CategoryNamePath}}">{{CategoryName}} <span class="badge">{{countz}}</span></a> {{/each}}
                 </div>
             </div>
             <!--<h1>CONT</h1>-->
-            ->ZONE layout
-
+            <p class="bg-info">Bids:
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="all">All</label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="0">0</label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="1">1</label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="2">2</label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" value="3">3+</label>
+            </p>
 
 
             {{> yield}}
@@ -284,7 +333,8 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; rezultat.info 2015-2016</p>
+                    <p>Service under development</p>
                 </div>
             </div>
         </footer>

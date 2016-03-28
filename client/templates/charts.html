@@ -1,0 +1,30 @@
+<template name="dayz">
+    <div class="col-md-9">
+        <p><a href="{{pathFor route='stats' dy='day'}}">Day</a>
+        <a href="{{pathFor route='stats' dy='week'}}">Week</a>
+            <a href="{{pathFor route='stats' dy='month'}}">Month</a></p>
+    <div id="chartscont" style="min-width: 400px; height: 400px; margin: 0 auto">
+
+    </div>
+</div>
+</template>
+<template name="week">
+    <div class="col-md-9">
+        <p><a href="{{pathFor route='stats' dy='day'}}">Day</a>
+            <a href="{{pathFor route='stats' dy='week'}}">Week</a>
+            <a href="{{pathFor route='stats' dy='month'}}">Month</a></p>
+        <div id="chartscont" style="min-width: 400px; height: 400px; margin: 0 auto">
+
+        </div>
+    </div>
+</template>
+<template name="month">
+    <div class="col-md-9">
+        <p><a href="{{pathFor route='stats' dy='day'}}">Day</a>
+            <a href="{{pathFor route='stats' dy='week'}}">Week</a>
+            <a href="{{pathFor route='stats' dy='month'}}">Month</a></p>
+        <div id="chartscont" style="min-width: 400px; height: 400px; margin: 0 auto">
+
+        </div>
+    </div>
+</template>

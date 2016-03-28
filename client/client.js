@@ -4,7 +4,7 @@
 
 Meteor.subscribe("cats");
 Meteor.subscribe("ncats");
-Meteor.subscribe("items");
+//Meteor.subscribe("items");
 
 
 
@@ -17,20 +17,6 @@ Meteor.subscribe("items");
 //        console.log(array);
 //    }
 //});
-Template.BrootLay.events({
-    'click .sitemb' : function(evt, template) {
-        console.log('Clickz')
-        var text = template.find('.form-control').value;
-        Router.go('search', {name: text})
-    },
-    'keypress .textInp' : function(evt, template) {
-        if (evt.which === 13) {
-            var text = template.find('.form-control').value;
-            Meteor.call('findItem', text);
-            Router.go('search', {name: text})
-        }
-    }
-})
 
 Template.BrootLay.helpers({
     'CategoryNamePath': function() {
@@ -41,14 +27,6 @@ Template.BrootLay.helpers({
     }
 })
 
-Template.SingleItem.events({
-    'click .js-activate-s-image-box': function (e) {
-        var imgPath = $(e.currentTarget).data('full-image-src');
-        if (imgPath) {
-            sImageBox.open(imgPath);
-        }
-    }
-});
 
 Template.SinglePic.helpers({
     'tumb': function(imp){
@@ -64,7 +42,7 @@ Template.SinglePic.helpers({
 
 Template.SingleItem.helpers({
     'pathitem': function(){
-        return(window.location.href);
+        return(Iron.Location.get().path);
     },
     'itemState': function(itemN){
         var self = itemN;
