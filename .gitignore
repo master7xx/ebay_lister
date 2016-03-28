@@ -1,3 +1,5 @@
 settings.json
 .idea/
-
+client/lib/chartshelpers.js
+client/templates/charts.html
+server/chartsmetods.js
