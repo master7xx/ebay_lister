@@ -1,3 +1,4 @@
+Для резюме
 # ebay_lister
 
 ## Purpose of this software
