@@ -1,0 +1,58 @@
+diff --git a/ebay_lister/js/ebay_lister.js b/ebay_lister/js/ebay_lister.js
+index 1234abcd..5678efgh 100644
+--- a/ebay_lister/js/ebay_lister.js
++++ b/ebay_lister/js/ebay_lister.js
+@@ -12,7 +12,7 @@ const apiUrl = 'https://open.api.ebay.com/ws/api.dll';
+ const apiVersion = '1.13.0';
+ const appId = 'Your-App-ID';
+ const siteId = '0';
+-const compatLevel = '820';
++const compatLevel = '1100';
+ const ruName = 'JohnDoe';
+ const sandbox = false;
+ const headers = {
+@@ -28,7 +28,7 @@ const headers = {
+     'X-EBAY-API-DEV-NAME': appId,
+     'X-EBAY-API-APP-NAME': appId,
+     'X-EBAY-API-CERT-NAME': appId,
+-    'X-EBAY-COMPATIBILITY-LEVEL': compatLevel,
++    'X-EBAY-COMPATIBILITY-LEVEL': compatLevel, // установите значение 1100, чтобы включить поддержку новейших функций API
+     'X-EBAY-CUSTOMID': ruName,
+     'X-EBAY-SITEID': siteId,
+   };
+@@ -56,9 +56,9 @@ function getCategories() {
+     try {
+       const response = await fetch(`${apiUrl}?callname=GetCategories&responseencoding=JSON&siteid=${siteId}&appid=${appId}&version=${apiVersion}`, {
+         method: 'GET',
+-        headers,
++        headers: headers, // используйте синтаксис ES6 для объектов
+       });
+       const data = await response.json();
+       if (data.Ack === 'Success') {
+@@ -73,7 +73,7 @@ async function getItems(categoryId) {
+     try {
+       const response = await fetch(`${apiUrl}?callname=FindItemsAdvanced&responseencoding=JSON&siteid=${siteId}&appid=${appId}&version=${apiVersion}`, {
+         method: 'GET',
+-        headers,
++        headers: headers, // используйте синтаксис ES6 для объектов
+       });
+       const data = await response.json();
+       if (data.Ack === 'Success') {
+@@ -92,11 +92,11 @@ async function getItems(categoryId) {
+     } catch (e) {
+       console.error(`Error in getItems: ${e}`);
+     }
+-  }
++  } catch (e) {
++    console.error(`Error in getItems: ${e}`); // используйте блок try/catch для функций, которые могут выбрасывать ошибки
++  }
+
+-function sortItemsByPrice(a, b) {
++const sortItemsByPrice = (a, b) => {
+     if (a.ConvertedCurrentPrice.Amount < b.ConvertedCurrentPrice.Amount) {
+       return -1;
+     }
+@@ -118,7 +118,7 @@ function displayItems(items) {
+     for (const item of items) {
+       const price = item.ConvertedCurrentPrice.Amount / 100; // разделите на 100
+       
