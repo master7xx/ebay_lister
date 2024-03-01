@@ -1,8 +1,26 @@
-The MIT License (MIT)
-Copyright (c) <2015> master7xx<partyzane@gmail.com>
+// The MIT License is a permissive free software license that allows users to
+// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+// of the software, subject to the inclusion of the copyright notice and this
+// permission notice in all copies or substantial portions of the software.
+//
+// For more information, visit: https://opensource.org/licenses/MIT
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+// Copyright notice:
+//   - Year: 2015
+//   - Copyright holder: master7xx (partyzane@gmail.com)
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+// Permission notice:
+//   - Users are granted permission to use, copy, modify, merge, publish,
+//     distribute, sublicense, and/or sell copies of the software.
+//   - The above copyright notice and this permission notice must be included
+//     in all copies or substantial portions of the software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// Warranty disclaimer:
+//   - The software is provided "as is", without warranty of any kind,
+//     express or implied, including but not limited to the warranties of
+//     merchantability, fitness for a particular purpose, and noninfringement.
+
+// Limitation of liability:
+//   - The authors or copyright holders cannot be held liable for any claim,
+//     damages, or other liability arising from, out of, or in connection with
+//     the software or the use or other dealings in the software.
