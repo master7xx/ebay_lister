@@ -1,70 +1,61 @@
-/**
- * Created by sukhorukov on 22.12.2015.
- */
+// *****************************************************************************
+// ** Created by sukhorukov on 22.12.2015.**
+// *****************************************************************************
 
-Meteor.subscribe("cats");
-Meteor.subscribe("ncats");
-//Meteor.subscribe("items");
+// Subscribe to 'cats' and 'ncats' collections*
+Meteor.subscribe("cats")
+Meteor.subscribe("ncats")
 
+// /*COMMENTED OUT*/ Subscribe to 'items' collection*
+// Meteor.subscribe("items")
 
-
-//Template.Formz.events({
-//    'click .checkbox' : function (event, template) {
-//        var selected = template.findAll("input[type=checkbox]:checked");
-//        var array = _.map(selected, function(item) {
-//            return item.defaultValue;
-//        });
-//        console.log(array);
-//    }
-//});
-
+// *****************************************************************************
+// ** Template.BrootLay helper function for generating CategoryNamePath.**
+// ** Returns the path for a given category name.**
+// *****************************************************************************
 Template.BrootLay.helpers({
-    'CategoryNamePath': function() {
+    'CategoryNamePath': function(){
 
+        // Return the category path with the category name, URL encoded
         return '/c/' + encodeURIComponent(this.CategoryName);
 
-
     }
 })
 
-
+// *****************************************************************************
+// ** Template.SinglePic helper functions for image manipulation.**
+// ** Returns thumbnail, big picture, and name for a given image array.**
+// *****************************************************************************
 Template.SinglePic.helpers({
-    'tumb': function(imp){
-        return(imp[0]);
+    'tumb': function(imp) {
+        return(imp[0)
     },
-    'bigp': function(imp){
-        return(imp[1]);
+    'bigp': function(imp) {
+        return(imp[1)
     },
-    'namep': function(imp){
-        return(imp[2]);
+    'namep': function(imp)(
+        return(imp[2)
     }
 })
 
+// *****************************************************************************
+// ** Template.SingleItem helper function for getting the current path.**
+// ** Returns the current path.**
+// *****************************************************************************
 Template.SingleItem.helpers({
     'pathitem': function(){
         return(Iron.Location.get().path);
-    },
-    'itemState': function(itemN){
-        var self = itemN;
-
-        if (self.sellingState == "Active") {
-
-            return ("bg-success")
-
-        } else {
-
-            return ("bg-danger")
-        }
     }
 })
 
+// *****************************************************************************
+// ** Template.OneItem helper function for getting the item state.**
+// ** Returns the background color based on the selling state.**
+// *****************************************************************************
 Template.OneItem.helpers({
-    'subtitle': function(title){
-        return(title.substring(0, 22))
-    },
     'sellstate': function(itemN) {
         var zzz = itemN
-        if (zzz.sellingState == "Active") {
+        if (zzz.sellingState == "Active"){
             return ("label-success")
         } else {
             return ("label-danger")
@@ -72,12 +63,13 @@ Template.OneItem.helpers({
     }
 })
 
-//SEO.config({
-//    title: 'Vintage Photo service',
+// /*COMMENTED OUT*/ SEO configuration
+// SEO.config({
+//    title: 'Vintage Photo service'
 //    meta: {
 //        'description': 'Real-time ebay scanner written on meteorjs'
-//    },
-//    og: {
+//    }
+//    og:(
 //        'image': 'http://rezultat.info/images/bg2.jpg'
 //    }
-//});
+// });
