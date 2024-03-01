@@ -1,7 +1,7 @@
-This directory and the files immediately inside it are automatically generated
-when you change this package's NPM dependencies. Commit the files in this
-directory (npm-shrinkwrap.json, .gitignore, and this README) to source control
-so that others run the same versions of sub-dependencies.
+# Directory and File Information
+This directory contains files that are automatically generated when you
+change this package's NPM dependencies. Specifically, the files in this
+directory include:
 
-You should NOT check in the node_modules directory that Meteor automatically
-creates; if you are using git, the .gitignore file tells git to ignore it.
+- npm-shrinkwrap.json: This file is used to lock down the versions of
+
