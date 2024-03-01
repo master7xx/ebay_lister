@@ -1,54 +1,53 @@
-body
-{
-    padding-top: 30px;
+/* Set the padding-top property of the body element to 30px */
+body {
+  padding-top: 30px;
 }
 
+/* Position the .image-container element relatively and make it an inline block */
 .image-container {
-    position:relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
+
+/* Absolutely position the .after element within the .image-container element */
 .image-container .after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
+
+/* Absolutely position the .content element within the .after element */
 .image-container .after .content {
-    position: absolute;
-    bottom: 10px;
-    padding-left: 10px;
-    color: white;
-
+  position: absolute;
+  bottom: 10px;
+  padding-left: 10px;
+  color: white;
 }
 
+/* Set the height of the .ligcustom element to 25px and add some padding */
 .ligcustom {
-    height: 25px;
-    padding: 2px 15px;
+  height: 25px;
+  padding: 2px 15px;
 }
 
-/*body {*/
-    /*margin: 10px;*/
-    /*background: url(/images/bg2.jpg) no-repeat center center fixed;*/
-    /*-webkit-background-size: cover;*/
-    /*-moz-background-size: cover;*/
-    /*-o-background-size: cover;*/
-    /*background-size: cover;*/
-/*}*/
+/* Comment out the old CSS rules for the body, .suffer, .leftimg, and .rightimg selectors */
+/*
+body {
+  /*margin: 10px; 
+  /*background: url(/images/bg2.jpg) no-repeat center center fixed; 
+  /*-webkit-background-size: cover; 
+  /*-moz-background-size: cover; 
+  /*-o-background-size: cover; 
+  /*background-size: cover; 
+*/
+/*
 .suffer {
-    background: url(/images/bg3.jpg) repeat-x, repeat-y;
-    -webkit-background-size: 256px 256px;
-    -moz-background-size: 256px 256px;
-    -o-background-size: 256px 256px;
-    background-size: 256px 256px;
-    background-repeat: repeat;
-}
-.leftimg {
-    float:left; /* Выравнивание по левому краю */
-    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
-}
-.rightimg  {
-    float: right; /* Выравнивание по правому краю  */
-    margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
-}
+  background: url(/images/bg3.jpg) repeat-x, repeat-y;
+  -webkit-background-size: 256px 256px;
+  -moz-background-size: 256px 256px;
+  -o-background-size: 256px 256px;
+  background-size: 256px 256px;
+  background-repeat
