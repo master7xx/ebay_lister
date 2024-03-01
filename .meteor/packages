@@ -1,40 +1,50 @@
-# Meteor packages used by this project, one per line.
-# Check this file (and the other files in this directory) into your repository.
-#
-# 'meteor add' and 'meteor remove' will edit this file for you,
-# but you can also edit it by hand.
+// List of Meteor packages used by this project, one per line.
+// Check this file (and the other files in this directory) into your repository.
+//
+// 'meteor add' and 'meteor remove' will edit this file for you,
+// but you can also edit it by hand.
 
+// The 'insecure' package is included by default in new Meteor projects.
+// It allows all database writes from the client, which is generally not recommended
+// for production applications due to security concerns.
 insecure
+
+// The 'meteortoys:allthings' package provides a collection of utility functions.
 meteortoys:allthings
+
+// The 'standard-minifiers' package is included by default in new Meteor projects.
+// It provides standard minifiers for JavaScript, CSS, and HTML files.
 standard-minifiers
+
+// The 'meteor-base' package is included by default in new Meteor projects.
+// It contains features that are common to most Meteor applications.
 meteor-base
+
+// The 'mobile-experience' package is included by default in new Meteor projects.
+// It provides features that are useful for building mobile applications.
 mobile-experience
+
+// The 'mongo' package is included by default in new Meteor projects.
+// It provides a MongoDB database for your application.
 mongo
+
+// The 'blaze-html-templates' package is included by default in new Meteor projects.
+// It provides a way to define and render HTML templates in your application.
 blaze-html-templates
+
+// The 'session' package is included by default in new Meteor projects.
+// It provides a simple client-side reactive dictionary.
 session
+
+// The 'jquery' package is included by default in new Meteor projects.
+// It provides the jQuery library for your application.
 jquery
+
+// The 'tracker' package is included by default in new Meteor projects.
+// It provides a reactive computation library.
 tracker
+
+// The 'logging' package is included by default in new Meteor projects.
+// It provides a logging system for your application.
 logging
-reload
-random
-ejson
-spacebars
-check
-nemo64:bootstrap
-less
-underscore
-http
-iron:router
-templating
-alethes:pages
-percolate:synced-cron
-momentjs:moment
-zimme:active-route
-juliancwirko:s-image-box
-manuelschoebel:ms-seo
-froatsnook:request
-mrt:require
-highcharts:highcharts-meteor
 
-
-highcharts-container
