@@ -1,20 +1,25 @@
-/*---------------------------------*\
-| CSS declarations for the page    |
-|---------------------------------|
-| Here we define the CSS styles for  |
-| various elements on the page.     |
-\*---------------------------------*/
+/*---------------------------------*/
+/* CSS declarations for the page    */
+/*---------------------------------*/
+
+/* This section contains all the CSS declarations for the elements on the page. */
 
 
 
 /* Set the background color of the body element to white */
 body {
   background-color: white;
+  /* The background-color property sets the color of the background for the body element.
+     Here, we set it to white using the hex code #ffffff. */
 }
+
 
 /* Set the font size and color of all paragraph elements */
 p {
   font-size: 16px;
   color: #333;
+  /* The font-size property sets the size of the text for all p elements.
+     Here, we set it to 16 pixels.
+     The color property sets the color of the text for all p elements.
+     Here, we set it to a dark gray color using the hex code #333333. */
 }
-
