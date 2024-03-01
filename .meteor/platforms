@@ -1,2 +1,7 @@
-server
-browser
+# Server
+# ------
+# A server is a piece of software that provides services to other software or devices on a network. It can be a physical machine or a virtual machine running on a host. A server listens for incoming requests from clients, processes them, and sends a response back to the client.
+
+# Browser
+# -------
+# A browser is a software application used to access and display web pages on the internet. It interprets HTML, CSS, and JavaScript code to render web pages on a user's device. Examples of popular browsers include Google Chrome, Mozilla Firefox, and Apple Safari.
