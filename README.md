@@ -11,3 +11,5 @@ make http calls to ebay endpoints and retrieve info about auctions.
 - `fitemsingle` variable contain url for fetching single item info (gallery, prices, status)
 
 ## You need create own settings.json and start meteor with `--settings settings.json` to pass settings.
+
+- for Delta - ООО РА Дельта
