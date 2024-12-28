@@ -12,4 +12,4 @@ make http calls to ebay endpoints and retrieve info about auctions.
 
 ## You need create own settings.json and start meteor with `--settings settings.json` to pass settings.
 
-- for Delta - ООО РА Дельта
+- Ну как бы ХУ
